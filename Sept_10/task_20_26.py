@@ -9,12 +9,12 @@
 #length = len(full_name)
 #print(full_name, length)
 
-'''T22 name = input("Enter your name in lowercase: ")
+T22 name = input("Enter your name in lowercase: ")
 surname = input("Enter your surname in lowercase: ")
 name = name.title()
 surname = surname.title()
 ID = name + surname
-print(ID)'''
+print(ID)
 
 
 '''T23 rhyme = input("Enter the first line of a nursery rhyme ")
