@@ -114,31 +114,39 @@ import time
 name = input("What is your name?")
 print(f'Hello, {name}!')
 
-time.sleep(1) '''wait for 1 sec'''
+time.sleep(1)
 print("Start guessing... ")
-time.sleep(0.5) '''wait for 0.5 sec'''
+time.sleep(0.5) 
+
 
 secret_word = "coding"
-guesses = ""
-letter_count = 0
-max_turns = 6
-failed_count = 0
+guesses = ''
 
-while max_turn > 1:
+max_turns = 11
+
+while max_turns > 0:
+    incor_guesses = 0
+    max_turns -= 1
+    
+    current_state = ""
+    for char in secret_word:
+        if char in guesses:
+            current_state += char
+        else: 
+            current_state += "_"
+            incor_guesses += 1  
+    print(current_state) 
+
+    guess = input("Guess a charachter: ")
+    guesses += guess
+    
+    if guess not in secret_word:
+        print("Wrong guess")
+        print(f"You have {max_turns} more guesses remaining")
+        if max_turns == 0:
+            print("Unfortunately for you, {name}, you've lost!")
 
 
-
-
-
-print("Your guess is... ")
-
-for i in range(secret_word)[0, 5]:
-    if guesses == "c":
-        letter_count = +1 
-        print('C')
-    else:
-        print('_')
-        failed_count = +1
-
-
-
+print("incor guesses:", incor_guesses)
+if incor_guesses == 0:
+    print("You won!")
