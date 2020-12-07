@@ -149,6 +149,8 @@ while i < 4:
 print(s)
 
 
+
+
 for x in range (5, 0, -1): # выводит от 5 до 1  
     print(x)
 
@@ -205,12 +207,24 @@ print(word)'''
 
 #срезы 
 
-msg = "Hello world!"
+'''msg = "Hello world!"
 print(msg[6:11])
 
 print(msg[:3])
 print(msg[3:])
 print(msg[:]) #вся строка
+print(msg[::-1]) # выводит в обратном порядке с посл символа (-1)
+'''
+
+
+word = input("Please enter a word:")
+
+reverse_word = word[::-1]
+
+if word == reverse_word:
+    print("This is a pallindrome!")
+else: 
+    print("Try again!")
 
 
 
