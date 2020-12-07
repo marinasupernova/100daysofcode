@@ -240,9 +240,38 @@ while selection not in nums:
    print("Not in array. Try again")
    selection = int(input("plese enter a number from the list: "))
 
-print("This is the position", nums.index(selection))
+print("This is the position", nums.index(selection))'''
+
+'''a = 1 + 2j
+b = 2 - 3j
+print(a.real) # взять действительную часть комплексного числа 1
+print(b.imag) # взять мнимую часть комплексного числа -3'''
+
+'''print(2>1) # выводит TRUE FALSE'''
+
+
+'''print('I' > 'A')
+print('Marina' > 'Упыоина')'''
+
+x = 4; y = -2
+if x>= 2 and x <= 7 and (y < 0 or  y > 5) # or более низкий приоритет чем and  поэтому в скобочках  
+
+ 
+
+ 
      
   
+
+
+
+
+
+
+
+
+
+
+
         
         
 

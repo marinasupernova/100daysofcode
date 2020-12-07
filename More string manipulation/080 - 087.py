@@ -90,7 +90,7 @@ else:
     print("Incorrect")'''
 
 
-'''Task087
+Task087
 
 word = input("Please enter a word: ")
 length = len(word)
