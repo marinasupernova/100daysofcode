@@ -8,7 +8,17 @@ print(length)
 '''
 
 #2
+'''
 word = "abrakadabra"
 
+count = 0
 
-print(word[::3])
+for x in word:  
+    if x == "a":
+        count = count + 1
+print("A = ", count)
+'''
+
+#3
+
+        
