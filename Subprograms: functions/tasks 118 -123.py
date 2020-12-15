@@ -44,6 +44,50 @@ else:
     compare(answers["correct_answer"], answers["user_answer"])
     
 ''' 
+Task 121 
+ 
+def add_name():
+    name = input("Enter one name: ")
+    lst.append(name)
+
+def change_name():
+    index = int(input("please enter an index of the name: "))
+    name = input("Change the name: ")
+    lst[index] = name
+
+def del_name():
+    name = input("Please enter a name you want to delete: ")
+    lst.remove(name)
+
+def view_names():
+    for i in lst:
+        print(i)
+
+lst = []
+exit = False
+
+while exit != True:
+    user_choice = int(input("Please select from the options below: \n 1.Add one name \n 2. Change the name \n 3. Delete the name \n 4. View the names \n 5. Exit \n")) 
+
+    if user_choice == 1:
+        add_name()
+    elif user_choice == 2:
+        change_name()
+    elif user_choice == 3: 
+        del_name()
+    elif user_choice == 4: 
+        view_names()
+    elif user_choice == 5:
+        exit = True
+    else: 
+        print("Wrong choice, select a number from the above")
+
+
+
+
+
+
+
 
 
 
