@@ -178,8 +178,9 @@ print(books_list)
 
 ''' 
 
-'''Task 115
-
+'''
+Task 115'''
+'''
 file  = open("Books.csv", "r")
 reader = list(csv.reader(file))
 
@@ -188,13 +189,82 @@ books = []
 i = 0
 
 while i < length:
-    display = "Row: " + str(reader[i])
+    display = "Row: " + str(i+1) + "." + str(reader[i])
     i += 1
-    print(display, i) # как чтоб в начале
+    print(display) # как чтоб в начале
 
 '''
 
+'''Task 116'''
 
 
 
+'''
 
+file = open("Books.csv", "a")
+reader = list(csv.reader(file))
+
+new_list = []
+
+
+
+while answ == y: 
+    answ = input("Do you want to delete a row? y/n ")
+    if answ == y:
+        print("Please select the row you want to delete: ")
+    else: 
+        exit
+
+'''
+'''Task 116
+
+def get_data(file_name):
+    
+    books_list = list(csv.reader(open(file_name)))
+
+    return books_list
+
+def write_data(file_name, books_list):
+    writer = csv.writer(open(file_name, "w"))
+    writer.writerows(books_list)
+
+def del_data(books_list, index):
+    del books_list[index]
+    return books_list
+
+def add_data(books_list, newbook):
+    
+    books_list.append([newbook["name"], newbook["author"], newbook["year"]])
+
+    return books_list
+
+def view_data(books_list):
+    i = 0
+    length = len(books_list)
+    string_output = ""
+    while i < length: 
+        string_output += str(i+1) + ". " + books_list[i][0] + "(" + books_list[i][1] + ") -" + books_list[i][2] + ";"
+        string_output += "\n"
+        i += 1
+
+
+    print(string_output)
+
+def main():
+    books_list = get_data("Books.csv")
+    index = int(input("Please enter a row you want to delete: "))
+    books_list = del_data(books_list, index)
+    newbook = {
+        "name": input("\nPlease enter a name: "), 
+        "author": input("\nPlease enter an author: "),
+        "year": input("\nPlease enter a year: ")
+    }
+    books_list = add_data(books_list, newbook)
+    view_data(books_list)
+    write_data("Books2.csv", books_list)
+
+   
+
+    
+main()
+'''
