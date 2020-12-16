@@ -88,7 +88,7 @@ print(file.read())'''
 
 name = input("Enter a name of the book: ")
 author = input("Enter an author of the book: ")
-year = input("Enter an author of the book: ")
+year = input("Enter a year of the book: ")
 
 new_record = "\n" + " " + name + " , " + author + " , " + str(year)
 
@@ -134,13 +134,67 @@ file.close()'''
 
 '''Task 114'''
 
-
+'''
 start_year = str(input("Please enter a start year of release: "))
 end_year = str(input("Please enter an end year of release: "))
 
 file = open("Books.csv", "r")
 reader = csv.reader(file)
 
-for row in file:  
+for xxx in file:  
     if start_year and end_year in str(row):
         print(row)
+'''
+
+'''
+file = open(“NewStars.csv”,“w”)
+for row,i in tmp:
+    newRec = tmp[i][0] + ”,” + tmp[i][1] + ”,” + tmp[i][2] + ”\n”
+    file.write(newRec)
+file.close()
+'''
+'''
+Task 114
+start_year = int(input("Please enter a start year of release: "))
+end_year = int(input("Please enter an end year of release: "))
+
+file_pointer = open("Books.csv", "r")
+reader = csv.reader(file_pointer) # читает файл построчно
+books = list(reader) # а это мы из него сделали список чтобы с ним работать 
+
+books_list = [] #сюда мы будем записывать список книг подходящий
+
+
+length = len(books)
+
+i = 0
+
+while i < length: 
+    if int(books[i][2]) >= start_year and int(books[i][2]) <= end_year:
+        books_list.append(books[i])
+    i += 1
+
+print(books_list)
+
+''' 
+
+'''Task 115
+
+file  = open("Books.csv", "r")
+reader = list(csv.reader(file))
+
+length = len(reader)
+books = []
+i = 0
+
+while i < length:
+    display = "Row: " + str(reader[i])
+    i += 1
+    print(display, i) # как чтоб в начале
+
+'''
+
+
+
+
+

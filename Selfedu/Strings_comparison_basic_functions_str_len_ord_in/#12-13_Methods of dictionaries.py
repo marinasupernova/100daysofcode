@@ -1,3 +1,5 @@
+
+'''
 d = {True: 1, False: "Ложь", "list": [1,2,3], 5: 5}
 d2 = d.copy()
 d2["list"] = [5,6,7]
@@ -38,3 +40,9 @@ for key, value in d.items():
 d2 = dict(house = "дом", car = "машина",
 tree = "дерево", road = "дорога", river = "река")
 
+'''
+
+d = "int= целое число, dict=словарь, list=список, str=строка, bool=булевый тип"
+
+for x in d.items():
+    print(x)
