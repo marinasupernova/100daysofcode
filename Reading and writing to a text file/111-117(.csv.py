@@ -264,8 +264,5 @@ def main():
     write_data("Books2.csv", books_list)
 
    
-   
-
-    
 main()
 '''
