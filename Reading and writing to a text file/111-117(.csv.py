@@ -266,3 +266,23 @@ def main():
    
 main()
 '''
+
+import random
+import csv
+
+file_pointer = open("Final_score.csv", "w")
+name = input("What is your name? ")
+
+num1 = random.randint(1, 500)
+num2 = random.randint(1, 500)
+
+
+score = int(input("Please add these two numbers: " + str(num1) + " + " + str(num2) + " = "))
+
+
+new_record = name + ", " + str(score) + "\n"
+file_pointer.write(str(new_record))
+file_pointer.close()
+
+
+
