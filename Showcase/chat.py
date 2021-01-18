@@ -21,9 +21,7 @@ def display_msgs():
         print(output)
         i += 1
 
-
-
-
+да
 
 name = input("What is your name? ")
 display_msgs()
@@ -34,6 +32,7 @@ while True:
     add_msg(name, msg1)
     print("\n\n\n\n\n")
     display_msgs()
+
 
 
 
