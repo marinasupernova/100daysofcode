@@ -59,7 +59,7 @@
 
 '''Task 124 '''
 
-from tkinter import *
+#from tkinter import *
 
 # def click():
 #     name = textbox1.get()
@@ -91,3 +91,27 @@ from tkinter import *
 
 
 # window.mainloop()
+
+'''Task 125 '''
+
+from tkinter import *
+import random
+
+def rand_num():
+    random_number = str(random.randint(1, 6))
+    textbox["text"] = str(random_number)
+
+
+window = Tk()
+window.title ("Roll a dice")
+window.geometry("500x200")
+
+button = Button(text = "Roll", command = rand_num)
+button.place(x = 30, y = 50, width = 120, height = 25)
+
+textbox = Message(text = "")
+textbox.place(x = 150, y = 50, width = 50, height = 25)
+textbox["bg"] = "white"
+textbox["fg"] =  "black"
+
+window.mainloop()
