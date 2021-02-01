@@ -259,6 +259,11 @@ window.protocol("WM_DELETE_WINDOW", on_closing)
 window.mainloop()
 '''
 
+
+'''
+Mijn lieve chat
+'''
+
 from tkinter import *
 import csv
 
