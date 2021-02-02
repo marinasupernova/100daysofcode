@@ -262,44 +262,49 @@ window.mainloop()
 
 '''
 Mijn lieve chat
-'''
+
 
 from tkinter import *
 import csv
 
-def enter_save_name(): 
-     name = name_entrybox.get()
-     chat_body.insert(END, name + ":")
-     name_entrybox.delete(0, END)
-     file = open("chat_main.csv", "a")
-     newrecord = name + ":"
-     file.write(newrecord)
-     file.close()
 
 
 def send_save_msg():
+
+    chat_name = name_entrybox.get()
     msg = message_entrybox.get()
-    chat_body.insert(END, msg + "\n")
+
+    chat_body.insert(END, chat_name + ":" + msg + "\n")
     message_entrybox.delete(0, END)
 
     file = open("chat_main.csv", "a")
-    newrecord = msg + "\n"
+    newrecord = chat_name + ":" + msg + "\n"
     file.write(newrecord)
     file.close()
 
 
+def display_msg():
+    file = open("chat_main.csv", "r")
+    rows = list(csv.reader(file))
+    length = len(rows)
+    i = 0
+    while i < length :
+         name = rows[i][0]
+         message = rows[i][1]
+         i += 1
+         print(name + message)
+
+
+
 window = Tk()
 window.title("Chat")
-window.geometry("500x500")
+window.geometry("530x520")
 
 label_name = Label(text = "Enter your name")
 label_name.place (x = 30, y = 30) 
 
 name_entrybox = Entry(text = "")
 name_entrybox.place(x = 30, y = 50, width = 100, height = 25)
-
-enter_button = Button(text = "Enter", command = enter_save_name)
-enter_button.place(x = 300, y = 50) 
 
 label_msg = Label(text = "Enter your message")
 label_msg.place (x = 30, y = 290) 
@@ -313,5 +318,28 @@ message_entrybox.place(x =30, y = 320, width = 300, height = 60)
 send_button = Button(text = "Send", command = send_save_msg)
 send_button.place(x = 350, y = 320) 
 
+display_msgs_button = Button(text= "Display all messages", command = display_msg)
+display_msgs_button.place(x = 350, y = 150) 
 
 window.mainloop()
+'''
+import csv
+
+def display():
+    file = open("chat_main.csv", "r")
+    rows = list(csv.reader(file))
+    for elem in rows:
+        message_entrybox.insert(END, elem)
+        
+
+
+print(display())
+
+# length = len(rows)
+# i = 0
+# while i < length :
+#     name = rows[i]
+#     i += 1
+
+# print(name)
+

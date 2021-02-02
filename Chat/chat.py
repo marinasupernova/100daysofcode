@@ -1,3 +1,6 @@
+'''
+1st version
+
 import csv
 from datetime import datetime
 
@@ -21,7 +24,7 @@ def display_msgs():
         print(output)
         i += 1
 
-да
+
 
 name = input("What is your name? ")
 display_msgs()
@@ -34,8 +37,67 @@ while True:
     display_msgs()
 
 
+'''
 
 
+
+
+from tkinter import *
+import csv
+
+
+
+def send_save_msg():
+
+    chat_name = name_entrybox.get()
+    msg = message_entrybox.get()
+
+    chat_body.insert(END, chat_name + ":" + msg + "\n")
+    message_entrybox.delete(0, END)
+
+    file = open("chat_main.csv", "a")
+    newrecord = chat_name + ":" + msg + "\n"
+    file.write(newrecord)
+    file.close()
+
+
+def display_msg():
+    file = open("chat_main.csv", "r")
+    rows = list(csv.reader(file))
+    for elem in rows:
+        chat_body.insert(END, elem)
+        # if elem in chat_body:
+        #     raise ValueError ("already there")
+        message_entrybox.focus()
+
+
+
+window = Tk()
+window.title("Chat")
+window.geometry("530x520")
+
+label_name = Label(text = "Enter your name")
+label_name.place (x = 30, y = 30) 
+
+name_entrybox = Entry(text = "")
+name_entrybox.place(x = 30, y = 50, width = 100, height = 25)
+
+label_msg = Label(text = "Enter your message")
+label_msg.place (x = 30, y = 290) 
+
+chat_body = Listbox()
+chat_body.place(x = 30, y = 80, width = 300, height = 200)
+
+message_entrybox = Entry(text = "")
+message_entrybox.place(x =30, y = 320, width = 300, height = 60)
+
+send_button = Button(text = "Send", command = send_save_msg)
+send_button.place(x = 350, y = 320) 
+
+display_msgs_button = Button(text= "Display all messages", command = display_msg)
+display_msgs_button.place(x = 350, y = 150) 
+
+window.mainloop()
 
 
 
