@@ -63,15 +63,10 @@ def send_save_msg():
 
 
 def display_msg():
+    clear()
     file = open("chat_main.csv", "r")
     rows = list(csv.reader(file))
     last_10 = rows[-10:]
-    last_10.reverse()
-    # for row in last_10: 
-
-
-
-
     chat_body.insert(END, *last_10)
     message_entrybox.focus()
     
@@ -81,6 +76,9 @@ def clear():
     message_entrybox.focus()
 
 
+def update_messages():
+    display_msg()
+    window.after(1000, update_messages)
 
 window = Tk()
 window.title("Chat")
@@ -109,8 +107,12 @@ display_msgs_button.place(x = 350, y = 150)
 
 clear_button = Button(text = "Clear the messages", command = clear)
 clear_button.place(x = 350, y = 250)
+        
 
+
+update_messages()
 window.mainloop()
+
 
 
 
