@@ -227,6 +227,9 @@ def add_on_click():
     name_entry.focus()
 
 
+    
+
+
 def clear():
     name_list.delete(0, END)
     name_entry.focus()

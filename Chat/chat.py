@@ -39,12 +39,13 @@ while True:
 
 '''
 
-
-
-
 from tkinter import *
 import csv
+import time
 
+# tic = time.perf_counter()
+
+# toc = time.perf_counter
 
 
 def send_save_msg():
@@ -64,11 +65,20 @@ def send_save_msg():
 def display_msg():
     file = open("chat_main.csv", "r")
     rows = list(csv.reader(file))
-    for elem in rows:
-        chat_body.insert(END, elem)
-        # if elem in chat_body:
-        #     raise ValueError ("already there")
-        message_entrybox.focus()
+    last_10 = rows[-10:]
+    last_10.reverse()
+    # for row in last_10: 
+
+
+
+
+    chat_body.insert(END, *last_10)
+    message_entrybox.focus()
+    
+
+def clear():
+    chat_body.delete(0, END)
+    message_entrybox.focus()
 
 
 
@@ -96,6 +106,9 @@ send_button.place(x = 350, y = 320)
 
 display_msgs_button = Button(text= "Display all messages", command = display_msg)
 display_msgs_button.place(x = 350, y = 150) 
+
+clear_button = Button(text = "Clear the messages", command = clear)
+clear_button.place(x = 350, y = 250)
 
 window.mainloop()
 
