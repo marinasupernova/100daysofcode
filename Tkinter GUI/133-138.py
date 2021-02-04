@@ -167,7 +167,7 @@ window.mainloop()
 
 '''
 '''
-Task 136
+Task 136 - 137 
 
 1. Enter a name (label + entry box)
 
@@ -179,7 +179,7 @@ Task 136
 
 # from tkinter import *
 
-# def add_to_listbox():
+# def add_to_listbox_csv():
 
 #     name = enter_name.get()
 #     enter_name.delete(0, END)
@@ -189,7 +189,13 @@ Task 136
 
 #     new_data = name + "," + gender + "\n"
 #     names_list.insert(END, new_data)
+
+#     file = open("Genderlist.csv", "a")
+#     new_record = name + ", " + gender + "\n"
+#     file.write(new_record)
+#     file.close()
 #     enter_name.focus()
+#     print(file.read())
 
 
 
@@ -210,7 +216,7 @@ Task 136
 # gender_list.place(x = 30, y = 70)
 
 
-# button_add = Button(text = "Add", command = add_to_listbox)
+# button_add = Button(text = "Add", command = add_to_listbox_csv)
 # button_add.place(x = 175, y = 70)
 
 
@@ -219,11 +225,58 @@ Task 136
 
 
 
+
 # window.mainloop()
 
 
 
+from tkinter import *
+
+def click():
+    num = entry_num.get()
+    artref = num + ".gif"
+    # if num == 1:
+    #     photo = PhotoImage(file = "/Users/marina/workspace/100daysofcode/Tkinter GUI/the_cat1.gif")
+    #     logoimage.image = photo
+    # elif num == 2:
+    #     photo = PhotoImage(file = "/Users/marina/workspace/100daysofcode/Tkinter GUI/the_cat2.gif")
+    #     logoimage.image = photo
+    # else:
+    #     photo = PhotoImage(file = "/Users/marina/workspace/100daysofcode/Tkinter GUI/the_cat3.gif")
+    #     logoimage.image = photo
+    photo = PhotoImage(file = artref)
+    
+    entry_num.focus()
+    logoimage["image"] = photo
+    logoimage.update()
+
+
+window = Tk()
+window.geometry("500x500")
+
+art = PhotoImage(file = "./Tkinter GUI/cats/the_cat.gif")
+photobox = Label(window, image = art)
+photobox.image = art
+photobox.place(x = 30, y = 20, width = 200, height = 200)
+
+label = Label(text = "Select Art number from 1 till 3: ")
+label.place(x = 30, y = 250)
+
+entry_num = Entry(text = "")
+entry_num.place(x = 30, y = 300)
+
+enter_button = Button(text = "See Art", command = click)
+enter_button.place(x = 30, y = 330)
+
+
+
+window.mainloop()
+
+
+
 '''
+
+chat first try try 
 from tkinter import *
 
 
@@ -323,17 +376,17 @@ display_msgs_button.place(x = 350, y = 150)
 
 window.mainloop()
 '''
-import csv
+# import csv
 
-def display():
-    file = open("chat_main.csv", "r")
-    rows = list(csv.reader(file))
-    for elem in rows:
-        message_entrybox.insert(END, elem)
+# def display():
+#     file = open("chat_main.csv", "r")
+#     rows = list(csv.reader(file))
+#     for elem in rows:
+#         message_entrybox.insert(END, elem)
         
 
 
-print(display())
+# print(display())
 
 # length = len(rows)
 # i = 0
