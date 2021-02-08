@@ -27,10 +27,18 @@ def get_all_aver(N):
         yield S/count
 
 
-it = get_all_aver(5) #создаеи итератор
+it = get_all_aver(10) #создаеи итератор
 
 print(next(it))
 print(next(it))
 print(next(it))
 
+# def something():
+#     yield 1
+#     yield 2
+#     yield 3
+# myiterator = something()
 
+# print(next(myiterator))
+# print(next(myiterator))
+# print(next(myiterator))
